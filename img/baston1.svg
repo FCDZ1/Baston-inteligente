@@ -1,0 +1,15 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#f7f3f5"/>
+  <circle cx="200" cy="200" r="150" fill="#ffffff"/>
+  <g transform="rotate(18 200 200)">
+    <rect x="188" y="90" width="18" height="230" rx="9" fill="#56b27b"/>
+    <path d="M188 90 q-4 -34 34 -34 q28 0 26 26 q-2 22 -26 24 q-24 2 -34 -16 z" fill="#2f6b4a"/>
+    <circle cx="197" cy="322" r="14" fill="#2f6b4a"/>
+    <rect x="182" y="300" width="30" height="16" rx="6" fill="#f2b134"/>
+  </g>
+  <g stroke="#56b27b" stroke-width="4" fill="none" opacity="0.6">
+    <path d="M240 300 q20 -10 30 -30"/>
+    <path d="M250 315 q28 -14 42 -42"/>
+  </g>
+  <text x="200" y="370" font-family="Arial, sans-serif" font-size="16" fill="#555555" text-anchor="middle">Bastón Inteligente</text>
+</svg>
