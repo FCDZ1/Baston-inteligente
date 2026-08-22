@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bastón Inteligente | Movilidad segura para personas con discapacidad visual</title>
+<meta name="description" content="Bastón Inteligente: dispositivo con sensores ultrasónicos que ayuda a personas con discapacidad visual a desplazarse con más seguridad y autonomía. Conocé el proyecto, el curso y el blog.">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+<header>
+  <div class="top-bar">
+    <a href="index.html" class="marca">Bastón Inteligente</a>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button id="toggle-tema" class="tema-toggle" type="button">🌙 Modo oscuro</button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">☰ Menú</button>
+    </div>
+  </div>
+  <nav aria-label="Navegación principal">
+    <ul class="menu" id="menu-principal">
+      <li><a href="index.html" aria-current="page">Inicio</a></li>
+      <li><a href="curso.html">Curso</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="faq.html">Preguntas Frecuentes</a></li>
+      <li><a href="quienes-somos.html">¿Quiénes Somos?</a></li>
+      <li><a href="contactos.html">Contactos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="contenido-principal">
+  <aside class="galeria" aria-label="Galería de imágenes del bastón">
+    <h3>GALERÍA</h3>
+
+    <div class="imagen" tabindex="0">
+      <img src="img/baston1.svg" alt="Bastón inteligente color verde con mango ergonómico">
+      <p>Bastón 1</p>
+    </div>
+
+    <div class="imagen" tabindex="0">
+      <img src="img/baston2.svg" alt="Bastón inteligente plegable con sensor ultrasónico en la punta">
+      <p>Bastón 2</p>
+    </div>
+  </aside>
+
+  <section class="contenido">
+    <h1>Bastón Inteligente</h1>
+    <button type="button" onclick="document.querySelector('.tarjeta').scrollIntoView({behavior:'smooth'})">VER MÁS</button>
+
+    <div class="tarjeta">
+      <h2>¿Qué es un Bastón Inteligente?</h2>
+      <p>
+        Un bastón inteligente es un dispositivo tecnológico diseñado
+        para ayudar a personas con discapacidad visual a desplazarse
+        de manera más segura y autónoma.<br>
+        Este tipo de bastón mejora la movilidad y ayuda a prevenir
+        choques o accidentes durante el desplazamiento.
+      </p>
+    </div>
+  </section>
+
+  <aside class="faq" aria-label="Información rápida">
+    <details>
+      <summary>¿Cómo funciona?</summary>
+      <p>Utiliza sensores para detectar obstáculos.</p>
+    </details>
+
+    <details>
+      <summary>Componentes</summary>
+      <p>Arduino, sensor ultrasónico, motor vibrador.</p>
+    </details>
+
+    <details>
+      <summary>Sensores</summary>
+      <p>HC-SR04 y otros sensores de apoyo.</p>
+    </details>
+
+    <details>
+      <summary>Beneficios</summary>
+      <p>Mayor seguridad y autonomía.</p>
+    </details>
+
+    <details>
+      <summary>Instrucciones de uso</summary>
+      <p>Sostener el bastón y encender el sistema.</p>
+    </details>
+  </aside>
+</main>
+
+<!-- Lightbox de la galería -->
+<div class="lightbox" id="lightbox">
+  <p id="lightbox-titulo" style="color:white;"></p>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-controles">
+    <button type="button" id="lightbox-anterior">‹ Anterior</button>
+    <button type="button" id="lightbox-cerrar">Cerrar</button>
+    <button type="button" id="lightbox-siguiente">Siguiente ›</button>
+  </div>
+</div>
+
+<footer>
+  <hr>
+  <p class="footer-links">
+    <a href="index.html">Inicio</a> ·
+    <a href="curso.html">Curso</a> ·
+    <a href="blog.html">Blog</a> ·
+    <a href="faq.html">FAQ</a> ·
+    <a href="quienes-somos.html">Quiénes Somos</a> ·
+    <a href="contactos.html">Contactos</a>
+  </p>
+  <p id="reloj"></p>
+  <p>© 2026 Bastón Inteligente. Todos los derechos reservados.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

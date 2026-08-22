@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Bastón Inteligente</title>
+<meta name="description" content="Novedades, avances y consejos sobre el proyecto Bastón Inteligente: tecnología asistiva, electrónica y accesibilidad.">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+<header>
+  <div class="top-bar">
+    <a href="index.html" class="marca">Bastón Inteligente</a>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button id="toggle-tema" class="tema-toggle" type="button">🌙 Modo oscuro</button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">☰ Menú</button>
+    </div>
+  </div>
+  <nav aria-label="Navegación principal">
+    <ul class="menu" id="menu-principal">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="curso.html">Curso</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="faq.html">Preguntas Frecuentes</a></li>
+      <li><a href="quienes-somos.html">¿Quiénes Somos?</a></li>
+      <li><a href="contactos.html">Contactos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="contenido-principal" class="contenedor" style="display:block;">
+  <h1>Blog</h1>
+  <p>Novedades y aprendizajes del proyecto Bastón Inteligente.</p>
+
+  <article class="entrada-blog">
+    <img src="img/blog-post1.svg" alt="Persona probando el bastón inteligente en la calle">
+    <h2>Probamos el bastón en la calle</h2>
+    <p class="meta-blog">Publicado el 10/08/2026 · Categoría: Pruebas de campo</p>
+    <p>
+      Después de varias semanas de trabajo en el taller, llevamos el
+      prototipo a la calle por primera vez. El sensor detectó correctamente
+      postes, escalones y autos estacionados, y el motor vibrador avisó con
+      la anticipación esperada.
+    </p>
+    <h3>Lo que aprendimos</h3>
+    <p>
+      Notamos que en espacios muy concurridos las vibraciones constantes
+      podían resultar molestas, así que ajustamos el umbral de distancia
+      para reducir las falsas alarmas.
+    </p>
+
+    <section class="comentario" aria-label="Comentarios de la entrada">
+      <h4>Comentarios</h4>
+      <div class="comentario">
+        <h4>Marina G.</h4>
+        <p>¡Excelente iniciativa! ¿Van a compartir el código completo en el curso?</p>
+      </div>
+      <div class="comentario">
+        <h4>Equipo Bastón Inteligente</h4>
+        <p>¡Sí! Todo el código de esta etapa ya está en la <a href="guia-estudio.html">guía de estudio</a>.</p>
+      </div>
+    </section>
+  </article>
+
+  <article class="entrada-blog">
+    <img src="img/blog-post2.svg" alt="Componentes electrónicos del bastón sobre una mesa de trabajo">
+    <h2>Componentes que usamos y por qué los elegimos</h2>
+    <p class="meta-blog">Publicado el 02/08/2026 · Categoría: Electrónica</p>
+    <p>
+      Elegimos el sensor ultrasónico HC-SR04 por su bajo costo y precisión
+      suficiente para distancias cortas. Lo combinamos con un Arduino 
+      Uno, es recomendable usar un arduino nano para ahorrar mas espacio, ideal para integrarlo dentro del bastón.
+    </p>
+    <h3>Lista de materiales</h3>
+    <p>Arduino Nano, sensor HC-SR04, motor vibrador, batería LiPo recargable y regulador de voltaje.</p>
+
+    <section class="comentario" aria-label="Comentarios de la entrada">
+      <h4>Comentarios</h4>
+      <div class="comentario">
+        <h4>Julián R.</h4>
+        <p>¿Sirve reemplazar el Arduino Nano por un Uno para quien recién arranca?</p>
+      </div>
+      <div class="comentario">
+        <h4>Equipo Bastón Inteligente</h4>
+        <p>Totalmente, el Uno funciona igual de bien para practicar antes del montaje final.</p>
+      </div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <hr>
+  <p class="footer-links">
+    <a href="index.html">Inicio</a> ·
+    <a href="curso.html">Curso</a> ·
+    <a href="blog.html">Blog</a> ·
+    <a href="faq.html">FAQ</a> ·
+    <a href="quienes-somos.html">Quiénes Somos</a> ·
+    <a href="contactos.html">Contactos</a>
+  </p>
+  <p id="reloj"></p>
+  <p>© 2026 Bastón Inteligente. Todos los derechos reservados.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

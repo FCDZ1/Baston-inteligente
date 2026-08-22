@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de estudio | Curso Bastón Inteligente</title>
+<meta name="description" content="Guía de estudio completa del curso de Bastón Inteligente: temas, subtemas y detalles organizados con encabezados HTML.">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+<header>
+  <div class="top-bar">
+    <a href="index.html" class="marca">Bastón Inteligente</a>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button id="toggle-tema" class="tema-toggle" type="button">🌙 Modo oscuro</button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">☰ Menú</button>
+    </div>
+  </div>
+  <nav aria-label="Navegación principal">
+    <ul class="menu" id="menu-principal">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="curso.html" aria-current="page">Curso</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="faq.html">Preguntas Frecuentes</a></li>
+      <li><a href="quienes-somos.html">¿Quiénes Somos?</a></li>
+      <li><a href="contactos.html">Contactos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="contenido-principal" class="contenedor" style="display:block;">
+  <h1>Guía de estudio: Bastón Inteligente</h1>
+  <p><a href="curso.html">← Volver al curso</a></p>
+
+  <section class="bloque guia-tema">
+    <h2>Tema 1: Introducción a la tecnología asistiva</h2>
+
+    <h3 class="guia-subtema">1.1 ¿Qué es la tecnología asistiva?</h3>
+    <p class="guia-detalle">Dispositivos y sistemas que ayudan a personas con discapacidad a ganar autonomía.</p>
+
+    <h3 class="guia-subtema">1.2 Casos de uso del bastón inteligente</h3>
+    <p class="guia-detalle">Desplazamiento urbano, interiores, espacios con obstáculos bajos.</p>
+    <p class="guia-detalle">Diferencias frente al bastón blanco tradicional.</p>
+  </section>
+
+  <section class="bloque guia-tema">
+    <h2>Tema 2: Electrónica básica</h2>
+
+    <h3 class="guia-subtema">2.1 Arduino: qué es y cómo se programa</h3>
+    <p class="guia-detalle">Placa, IDE, carga de programas (sketches).</p>
+
+    <h3 class="guia-subtema">2.2 Sensor ultrasónico HC-SR04</h3>
+    <p class="guia-detalle">Principio de funcionamiento: emisión y rebote de ondas de sonido.</p>
+    <p class="guia-detalle">Conexión de pines Trig y Echo.</p>
+
+    <h3 class="guia-subtema">2.3 Motor vibrador</h3>
+    <p class="guia-detalle">Cómo traducir la distancia detectada en una señal háptica.</p>
+  </section>
+
+  <section class="bloque guia-tema">
+    <h2>Tema 3: Programación del bastón</h2>
+
+    <h3 class="guia-subtema">3.1 Lectura de distancia</h3>
+    <p class="guia-detalle">Cálculo de distancia a partir del tiempo de eco.</p>
+
+    <h3 class="guia-subtema">3.2 Umbrales de alerta</h3>
+    <p class="guia-detalle">Definir a qué distancia se activa la vibración (por ejemplo, 50 cm).</p>
+
+    <h3 class="guia-subtema">3.3 Pruebas y depuración</h3>
+    <p class="guia-detalle">Uso del monitor serie para verificar lecturas antes de instalar el motor.</p>
+  </section>
+
+  <section class="bloque guia-tema">
+    <h2>Tema 4: Montaje final</h2>
+
+    <h3 class="guia-subtema">4.1 Ensamblado en el bastón físico</h3>
+    <p class="guia-detalle">Ubicación del sensor en la punta, cableado y batería.</p>
+
+    <h3 class="guia-subtema">4.2 Pruebas de campo</h3>
+    <p class="guia-detalle">Recorridos guiados y ajuste de sensibilidad según el entorno.</p>
+  </section>
+</main>
+
+<footer>
+  <hr>
+  <p class="footer-links">
+    <a href="index.html">Inicio</a> ·
+    <a href="curso.html">Curso</a> ·
+    <a href="blog.html">Blog</a> ·
+    <a href="faq.html">FAQ</a> ·
+    <a href="quienes-somos.html">Quiénes Somos</a> ·
+    <a href="contactos.html">Contactos</a>
+  </p>
+  <p id="reloj"></p>
+  <p>© 2026 Bastón Inteligente. Todos los derechos reservados.</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
