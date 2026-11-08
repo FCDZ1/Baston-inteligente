@@ -1,34 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Bastón Inteligente</title>
-<meta name="description" content="Novedades, avances y consejos sobre el proyecto Bastón Inteligente: tecnología asistiva, electrónica y accesibilidad.">
-<link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-<a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
-
-<header>
-  <div class="top-bar">
-    <a href="index.html" class="marca">Bastón Inteligente</a>
-    <div style="display:flex; align-items:center; gap:10px;">
-      <button id="toggle-tema" class="tema-toggle" type="button">🌙 Modo oscuro</button>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">☰ Menú</button>
-    </div>
-  </div>
-  <nav aria-label="Navegación principal">
-    <ul class="menu" id="menu-principal">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="curso.html">Curso</a></li>
-      <li><a href="blog.html" aria-current="page">Blog</a></li>
-      <li><a href="faq.html">Preguntas Frecuentes</a></li>
-      <li><a href="quienes-somos.html">¿Quiénes Somos?</a></li>
-      <li><a href="contactos.html">Contactos</a></li>
-    </ul>
-  </nav>
-</header>
+<?php
+$titulo_pagina = 'Blog';
+$descripcion_pagina = 'Novedades, avances y consejos sobre el proyecto Bastón Inteligente: tecnología asistiva, electrónica y accesibilidad.';
+require_once __DIR__ . '/includes/header.php';
+?>
 
 <main id="contenido-principal" class="contenedor" style="display:block;">
   <h1>Blog</h1>
@@ -59,7 +33,7 @@
       </div>
       <div class="comentario">
         <h4>Equipo Bastón Inteligente</h4>
-        <p>¡Sí! Todo el código de esta etapa ya está en la <a href="guia-estudio.html">guía de estudio</a>.</p>
+        <p>¡Sí! Todo el código de esta etapa ya está en la <a href="guia-estudio.php">guía de estudio</a>.</p>
       </div>
     </section>
   </article>
@@ -90,20 +64,4 @@
   </article>
 </main>
 
-<footer>
-  <hr>
-  <p class="footer-links">
-    <a href="index.html">Inicio</a> ·
-    <a href="curso.html">Curso</a> ·
-    <a href="blog.html">Blog</a> ·
-    <a href="faq.html">FAQ</a> ·
-    <a href="quienes-somos.html">Quiénes Somos</a> ·
-    <a href="contactos.html">Contactos</a>
-  </p>
-  <p id="reloj"></p>
-  <p>© 2026 Bastón Inteligente. Todos los derechos reservados.</p>
-</footer>
-
-<script src="js/main.js"></script>
-</body>
-</html>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>

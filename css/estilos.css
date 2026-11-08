@@ -110,7 +110,7 @@ header{
   display:inline-block;
 }
 
-.menu a:hover, .menu a:focus, .menu a[aria-current="page"]{
+.menu a:hover, .menu a:focus, .menu a[aria-current="page"], .menu a.active{
   background:var(--verde);
   color:white;
   outline:none;
