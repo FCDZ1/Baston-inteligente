@@ -1,0 +1,8 @@
+# Variables de entorno (datos locales/sensibles)
+.env
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
