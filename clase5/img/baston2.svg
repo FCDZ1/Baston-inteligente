@@ -1,0 +1,18 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#f7f3f5"/>
+  <circle cx="200" cy="200" r="150" fill="#ffffff"/>
+  <g stroke="#2f6b4a" stroke-width="16" stroke-linecap="round" fill="none">
+    <path d="M150 300 L180 220"/>
+    <path d="M180 220 L165 150"/>
+    <path d="M165 150 L200 90"/>
+  </g>
+  <circle cx="150" cy="300" r="10" fill="#f2b134"/>
+  <circle cx="180" cy="220" r="9" fill="#f2b134"/>
+  <circle cx="165" cy="150" r="9" fill="#f2b134"/>
+  <circle cx="200" cy="90" r="14" fill="#56b27b"/>
+  <g stroke="#56b27b" stroke-width="3" fill="none" opacity="0.7">
+    <path d="M215 90 q22 0 30 22"/>
+    <path d="M220 78 q34 -2 46 32"/>
+  </g>
+  <text x="200" y="370" font-family="Arial, sans-serif" font-size="16" fill="#555555" text-anchor="middle">Sensor en la punta</text>
+</svg>
