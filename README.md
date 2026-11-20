@@ -206,3 +206,94 @@ Todo el desarrollo está en la carpeta [`tp7/`](tp7/): el sitio completo (con la
 
 
 
+---
+
+# TP N 8 – Manejo de estado, sesiones y autenticación (`tp8/`)
+
+Todo el desarrollo está en la carpeta [`tp8/`](tp8/): el sitio completo con las clases anteriores más un módulo de registro, login y logout conectado a MySQL, con páginas protegidas y control de acceso por roles.
+
+## Qué se implementó
+
+| Archivo | Función |
+|---|---|
+| `tp8/registro.php` | Alta de usuarios: sanitización, validación, verificación de correo único y `password_hash(..., PASSWORD_BCRYPT)` con consulta preparada |
+| `tp8/login.php` | Valida con `password_verify()`; si es correcto: `session_regenerate_id(true)` y guarda `usuario_id`, `usuario_nombre` y `rol` en `$_SESSION` |
+| `tp8/includes/auth_guard.php` | Guardián de rutas reutilizable: sin sesión redirige a `login.php?error=acceso_denegado`; con rol no permitido responde 403 |
+| `tp8/logout.php` | `$_SESSION = []`, borrado de la cookie de sesión y `session_destroy()` |
+| `tp8/includes/sesion.php` | Configuración única y segura de sesión y cookie |
+| `tp8/dashboard.php` | Página protegida: cualquier usuario autenticado |
+| `tp8/admin_panel.php` | Página protegida: **solo rol `admin`** |
+| `tp8/admin/` | El CRUD del TP 7, ahora también protegido: solo `admin` |
+| `tp8/sql/migracion_tp8.sql` | Agrega el rol `usuario` a la base del TP 6 |
+
+## Seguridad aplicada
+
+- **Contraseñas:** hash bcrypt (costo 12); en la base nunca se guarda el texto plano. Se limita a 72 caracteres porque bcrypt ignora el resto. Si cambia el costo, `password_needs_rehash()` actualiza el hash al ingresar.
+- **Fijación de sesión:** `session_regenerate_id(true)` al iniciar sesión y `session.use_strict_mode` (el servidor rechaza IDs de sesión que no creó).
+- **Cookie de sesión:** `HttpOnly` (JavaScript no la lee), `SameSite=Lax` y `Secure` automático cuando el sitio se sirve por HTTPS; el ID nunca viaja en la URL.
+- **Login sin filtrar datos:** mismo mensaje para correo inexistente, clave incorrecta y cuenta desactivada, y mismo tiempo de respuesta en los tres casos.
+- **Rutas protegidas:** el rol se vuelve a leer de la base en cada pedido (si cambian el rol o desactivan al usuario, pierde el acceso al instante), se cierra la sesión tras 30 minutos de inactividad y las páginas privadas no se guardan en caché.
+- **CSRF:** token en los formularios de registro, login, logout y eliminar.
+- **XSS e inyección SQL:** entradas sanitizadas, salidas con `htmlspecialchars()` y consultas preparadas.
+
+## Tabla `usuarios`
+
+Se reutiliza la tabla normalizada del TP 6 en lugar de crear otra:
+
+| Campo pedido en la consigna | Cómo está en el proyecto |
+|---|---|
+| `id`, `nombre`, `email` (único), `created_at` | Igual |
+| `password` (VARCHAR 255) | `password_hash` (VARCHAR 255) |
+| `rol` ('admin' / 'usuario') | `rol_id` → tabla `roles` (`admin`, `editor`, `usuario`...); se obtiene con `INNER JOIN` |
+
+## Instalación y ejecución local
+
+1. Tener la base del TP 6 importada (`tp6/schema.sql` y `tp6/consultas.sql`).
+2. Ejecutar `tp8/sql/migracion_tp8.sql` en la pestaña SQL de phpMyAdmin (agrega el rol `usuario`).
+3. Copiar `tp8/.env.example` como `tp8/.env` y completar `DB_USER` y `DB_PASS`.
+4. Copiar la carpeta `tp8` a `htdocs`, iniciar Apache y abrir `http://localhost/tp8/`.
+5. Registrarse en `registro.php`. Para convertir esa cuenta en administradora, ejecutar en phpMyAdmin (con tu correo):
+   ```sql
+   UPDATE usuarios
+   SET rol_id = (SELECT id FROM roles WHERE nombre = 'admin')
+   WHERE email = 'tu_correo@ejemplo.com';
+   ```
+   No hay contraseñas de administrador escritas en el código.
+
+## Capturas
+
+**Registro de un usuario**
+
+![Registro](tp8/docs/capturas/registro.png)
+
+**Acceso denegado: redirección a login sin sesión iniciada**
+
+![Acceso denegado](tp8/docs/capturas/acceso-denegado.png)
+
+**Panel del usuario autenticado**
+
+![Dashboard](tp8/docs/capturas/dashboard.png)
+
+**Rol sin permiso: acceso restringido (403) al panel de administración**
+
+![Acceso restringido](tp8/docs/capturas/acceso-restringido.png)
+
+**Panel de administración con rol admin**
+
+![Panel admin](tp8/docs/capturas/admin-panel.png)
+
+**Contraseña guardada como hash bcrypt en la base (phpMyAdmin)**
+
+![Hash en la base](tp8/docs/capturas/hash-phpmyadmin.png)
+
+**Cookie de sesión con HttpOnly y SameSite (herramientas del navegador)**
+
+![Cookie de sesión](tp8/docs/capturas/cookie-sesion.png)
+
+**Cierre de sesión**
+
+![Logout](tp8/docs/capturas/logout.png)
+
+
+
+
