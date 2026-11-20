@@ -1,0 +1,25 @@
+<svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="300" fill="#f7f3f5"/>
+  <rect y="230" width="600" height="70" fill="#e5e0e2"/>
+  <rect y="220" width="600" height="10" fill="#D9D9D9"/>
+  <g stroke="#ffffff" stroke-width="6" stroke-dasharray="24 18">
+    <line x1="0" y1="255" x2="600" y2="255"/>
+  </g>
+  <!-- poste -->
+  <rect x="500" y="150" width="10" height="90" fill="#999"/>
+  <circle cx="505" cy="140" r="10" fill="#f2b134"/>
+  <!-- persona -->
+  <g transform="translate(230 100)">
+    <circle cx="20" cy="10" r="16" fill="#2f6b4a"/>
+    <rect x="6" y="26" width="28" height="60" rx="12" fill="#56b27b"/>
+    <rect x="0" y="86" width="14" height="55" rx="6" fill="#2f6b4a"/>
+    <rect x="26" y="86" width="14" height="55" rx="6" fill="#2f6b4a"/>
+    <line x1="34" y1="60" x2="70" y2="150" stroke="#171a18" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="70" cy="150" r="6" fill="#f2b134"/>
+  </g>
+  <g stroke="#56b27b" stroke-width="3" fill="none" opacity="0.7">
+    <path d="M300 148 q20 -10 30 -28"/>
+    <path d="M312 158 q30 -14 44 -40"/>
+  </g>
+  <text x="300" y="280" font-family="Arial, sans-serif" font-size="15" fill="#555555" text-anchor="middle">Primera prueba en la calle</text>
+</svg>

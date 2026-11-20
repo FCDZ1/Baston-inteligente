@@ -86,3 +86,65 @@ Las capturas están en `docs/capturas/`:
 ## Autor
 
 Cruz Mendez Facundo Mauricio
+
+---
+
+# Clase 5 – Formularios con POST y GET (`clase5/`)
+
+Todo el desarrollo de esta entrega está en la carpeta [`clase5/`](clase5/), que contiene el sitio completo (con las plantillas SSI de la Clase 4) más el procesamiento de formularios del lado del servidor.
+
+## Formularios creados
+
+### 1. Formulario de contacto – método POST (`clase5/contactos.php`)
+
+Recibe nombre, correo, teléfono (opcional), motivo, mensaje y aceptación de contacto.
+
+- **Sanitización:** cada dato pasa por `limpiar()` (`includes/formularios.php`), que aplica `trim()` y elimina caracteres de control. Todo lo que se imprime en pantalla pasa por `e()` (`htmlspecialchars()` con `ENT_QUOTES` y UTF-8), por lo que un `<script>` ingresado se muestra como texto y no se ejecuta.
+- **Validación en servidor:** campos obligatorios (`''`/`isset()`), largo mínimo y máximo, formato de correo con `filter_var(..., FILTER_VALIDATE_EMAIL)`, formato del teléfono con expresión regular, y el motivo se valida contra una lista blanca.
+- **Mensajes:** si hay errores se muestra un recuadro con la lista de problemas y el mensaje debajo de cada campo; si todo está bien se muestra un mensaje de éxito con los datos recibidos.
+- **Persistencia:** ante un error se conservan todos los campos ya completados (texto, select y checkbox).
+- **Post/Redirect/Get:** tras un envío correcto se redirige a la misma página, así al recargar no se reenvía el formulario.
+
+### 2. Buscador y filtro del blog – método GET (`clase5/blog.php`)
+
+Formulario con un campo de búsqueda (`?q=`) y un filtro por categoría (`?categoria=`). Los parámetros se sanitizan y validan antes de usarse (máximo 50 caracteres; la categoría debe estar en la lista permitida), se filtran las entradas y se informa cuántos resultados hay. Los valores se conservan en el formulario y siempre se imprimen con `e()`.
+
+Ejemplos: `blog.php?q=sensor` · `blog.php?categoria=Electrónica` · `blog.php?q=arduino&categoria=Electrónica`
+
+## Archivos nuevos o modificados en la Clase 5
+
+| Archivo | Cambio |
+|---|---|
+| `clase5/includes/formularios.php` | Nuevo: funciones `limpiar()`, `post_limpio()`, `get_limpio()` y `largo()` |
+| `clase5/contactos.php` | Formulario POST con validación, mensajes y persistencia |
+| `clase5/blog.php` | Entradas en un array + buscador y filtro GET |
+| `clase5/js/main.js` | El JS ya no intercepta el envío: solo ayuda a validar al salir de cada campo |
+| `clase5/css/estilos.css` | Estilos de las alertas de éxito/error y del buscador |
+
+## Ejecución
+
+Igual que la Clase 4: copiar `clase5/.env.example` como `clase5/.env`, iniciar Apache en XAMPP y abrir `http://localhost/Artaza/clase5/` (ajustar según la carpeta donde esté clonado el repositorio).
+
+## Capturas de la Clase 5
+
+Las capturas están en `clase5/docs/capturas/`.
+
+**Formulario POST – errores de validación y datos conservados**
+
+![POST con errores](clase5/docs/capturas/post-errores.png)
+
+**Formulario POST – envío exitoso**
+
+![POST exitoso](clase5/docs/capturas/post-exito.png)
+
+**Formulario POST – intento de XSS mostrado como texto**
+
+![POST con XSS](clase5/docs/capturas/post-xss.png)
+
+**Formulario GET – búsqueda con resultados**
+
+![GET con resultados](clase5/docs/capturas/get-resultados.png)
+
+**Formulario GET – búsqueda sin resultados**
+
+![GET sin resultados](clase5/docs/capturas/get-sin-resultados.png)
