@@ -148,3 +148,61 @@ Las capturas están en `clase5/docs/capturas/`.
 **Formulario GET – búsqueda sin resultados**
 
 ![GET sin resultados](clase5/docs/capturas/get-sin-resultados.png)
+
+
+---
+
+# TP N 7 – Persistencia y conexión segura PHP–MySQL (`tp7/`)
+
+Todo el desarrollo está en la carpeta [`tp7/`](tp7/): el sitio completo (con las plantillas SSI y los formularios de las clases anteriores) más un panel de administración que hace el CRUD de la tabla `entradas` de la base `baston_inteligente` diseñada en el TP 6.
+
+## Qué se implementó
+
+| Archivo | Función |
+|---|---|
+| `tp7/config/conexion.php` | Conexión PDO con `try-catch (PDOException)`. Los datos de acceso se leen del `.env` |
+| `tp7/admin/index.php` | **Read**: listado de entradas con `INNER JOIN` a categorías y usuarios |
+| `tp7/admin/crear.php` | **Create**: formulario + `INSERT` preparado |
+| `tp7/admin/editar.php` | **Update**: formulario precargado + `UPDATE` preparado con `WHERE id` |
+| `tp7/admin/eliminar.php` | **Delete**: `DELETE` preparado, solo por POST y con token CSRF |
+| `tp7/includes/entradas_crud.php` | Validación y funciones compartidas del CRUD |
+
+## Seguridad
+
+- **Consultas preparadas** con `:parametros` en todos los `INSERT`, `UPDATE`, `DELETE` y en los `SELECT` que reciben datos del usuario, con `PDO::ATTR_EMULATE_PREPARES => false` (previene inyección SQL).
+- **XSS:** todo lo que se imprime en las vistas pasa por `e()` (`htmlspecialchars()`).
+- **Validación en servidor:** campos obligatorios, largos, categoría y autor contra los registros existentes, fecha válida y ruta de imagen restringida.
+- **Eliminar** no funciona con un enlace GET: requiere POST con token CSRF y confirmación en pantalla.
+- **Credenciales fuera del código:** usuario y contraseña de la base van en `tp7/.env` (excluido por `.gitignore`); en el repositorio solo está `tp7/.env.example`.
+
+## Instalación y ejecución local
+
+1. Tener creada la base: importar `tp6/schema.sql` y luego `tp6/consultas.sql` en phpMyAdmin.
+2. Copiar `tp7/.env.example` como `tp7/.env` y completar `DB_USER` y `DB_PASS` (y `DB_PORT` si MySQL no usa el 3306).
+3. Copiar la carpeta `tp7` dentro de `htdocs` e iniciar Apache.
+4. Abrir `http://localhost/tp7/admin/`.
+
+## Capturas
+
+**Listado de entradas (Read)**
+
+![Listado](tp7/docs/capturas/crud-listado.png)
+
+**Crear una entrada (validación y alta)**
+
+![Crear](tp7/docs/capturas/crud-crear.png)
+
+**Editar una entrada (Update)**
+
+![Editar](tp7/docs/capturas/crud-editar.png)
+
+**Eliminar con confirmación (Delete)**
+
+![Eliminar](tp7/docs/capturas/crud-eliminar.png)
+
+**Cambios reflejados en la base de datos (phpMyAdmin)**
+
+![phpMyAdmin](tp7/docs/capturas/crud-phpmyadmin.png)
+
+
+

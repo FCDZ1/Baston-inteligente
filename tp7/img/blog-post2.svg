@@ -1,0 +1,25 @@
+<svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="300" fill="#f7f3f5"/>
+  <rect x="40" y="190" width="520" height="16" fill="#c9a06a"/>
+  <rect x="40" y="206" width="520" height="70" fill="#a97c4f"/>
+  <!-- placa arduino -->
+  <rect x="90" y="90" width="150" height="100" rx="8" fill="#2f6b4a"/>
+  <g fill="#0e4f2f">
+    <rect x="105" y="105" width="18" height="18"/>
+    <rect x="130" y="105" width="18" height="18"/>
+    <rect x="155" y="105" width="18" height="18"/>
+  </g>
+  <rect x="100" y="135" width="120" height="10" rx="4" fill="#56b27b"/>
+  <rect x="100" y="152" width="90" height="10" rx="4" fill="#56b27b"/>
+  <!-- sensor ultrasonico -->
+  <rect x="280" y="110" width="90" height="46" rx="6" fill="#e9e9e9" stroke="#999" stroke-width="2"/>
+  <circle cx="303" cy="133" r="14" fill="#c9c9c9" stroke="#888" stroke-width="2"/>
+  <circle cx="345" cy="133" r="14" fill="#c9c9c9" stroke="#888" stroke-width="2"/>
+  <!-- motor vibrador -->
+  <circle cx="430" cy="140" r="26" fill="#f2b134"/>
+  <circle cx="430" cy="140" r="10" fill="#2f6b4a"/>
+  <!-- bateria -->
+  <rect x="480" y="118" width="60" height="44" rx="6" fill="#56b27b"/>
+  <rect x="536" y="132" width="8" height="16" fill="#56b27b"/>
+  <text x="300" y="270" font-family="Arial, sans-serif" font-size="15" fill="#ffffff" text-anchor="middle">Componentes sobre la mesa de trabajo</text>
+</svg>
